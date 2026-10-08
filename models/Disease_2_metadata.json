@@ -1,0 +1,38 @@
+{
+    "target_class": "Disease_2",
+    "positive_definition": "dataset/Disease_2",
+    "negative_definition": "all other class folders including Healthy",
+    "image_size": [
+        224,
+        224,
+        3
+    ],
+    "architecture": "EfficientNetB0 ImageNet transfer learning + binary sigmoid head",
+    "stage1": "Frozen base, classification head training",
+    "stage2": "Last 30 base layers fine-tuned at low learning rate",
+    "live_decision_threshold": 0.7,
+    "live_stability_window": 8,
+    "live_stability_required": 5,
+    "metrics_are_test_set": {
+        "accuracy": 0.7142857142857143,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "auc": 0.6
+    },
+    "confusion_matrix_labels": [
+        "Not disease",
+        "Disease_2"
+    ],
+    "confusion_matrix": [
+        [
+            4,
+            1
+        ],
+        [
+            1,
+            1
+        ]
+    ],
+    "training_seed": 42
+}

@@ -4,7 +4,7 @@ __pycache__/
 .env
 service-account.json
 *.json.key
-models/*.keras
+# models/*.keras
 models/*.h5
 models/*.hdf5
 logs/*.jsonl

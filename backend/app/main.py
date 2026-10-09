@@ -1,3 +1,4 @@
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -9,18 +10,21 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# CORS configuration for the frontend and backend connection
+# Frontend URL
+frontend_origin = "https://ginger-leaf-ai-frontend.onrender.com"
+
+# Read configured CORS origins
 configured_origins = [
-    origin.strip()
+    origin.strip().rstrip("/")
     for origin in settings.cors_origins.split(",")
     if origin.strip()
 ]
 
-frontend_origin = "https://ginger-leaf-ai-frontend.onrender.com"
-
+# Add the deployed frontend if it is not already present
 if frontend_origin not in configured_origins:
     configured_origins.append(frontend_origin)
 
+# Enable CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=configured_origins,

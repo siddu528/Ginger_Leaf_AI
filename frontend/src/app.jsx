@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-const API_BASE = "https://ginger-leaf-ai.onrender.com/api";
+const API_BASE = "https://ginger-leaf-ai.onrender.com/docs";
 const LIVE_INTERVAL_MS = 1500;
 
 const CLASS_DETAILS = {
